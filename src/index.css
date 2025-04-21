@@ -1,0 +1,25 @@
+body{
+    margin:0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+    background: linear-gradient(to bottom right, #fdfcfb, #e2d1c3);
+    color: #2c2c2c;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  
+
+
+
