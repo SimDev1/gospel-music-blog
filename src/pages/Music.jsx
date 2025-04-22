@@ -6,27 +6,27 @@ import {
   Card,
   CardContent,
   Typography,
-  CardMedia,
 } from "@mui/material";
 import { motion } from "framer-motion";
 
 const Music = () => {
   const [musicList, setMusicList] = useState([]);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchMusic = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/upload");
+        const res = await axios.get(`${apiUrl}/api/upload`);
         setMusicList(res.data);
       } catch (err) {
         console.error("Failed to fetch music:", err);
       }
     };
     fetchMusic();
-  }, []);
+  }, [apiUrl]);
 
   return (
-    <Container sx={{ py: 5, pb:30 }}>
+    <Container sx={{ py: 5, pb: 30 }}>
       <Typography variant="h4" gutterBottom color="primary" fontWeight="bold">
         Latest Gospel Tracks
       </Typography>
@@ -47,7 +47,7 @@ const Music = () => {
                   <audio
                     controls
                     style={{ width: "100%", marginTop: "10px" }}
-                    src={`http://localhost:5000/${track.file_path}`}
+                    src={`${apiUrl}/${track.file_path}`}
                   />
                 </CardContent>
               </Card>

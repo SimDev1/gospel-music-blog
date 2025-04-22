@@ -7,11 +7,12 @@ const BlogDetails = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/blogs/${id}`);
+        const res = await axios.get(`${apiUrl}/api/blogs/${id}`);
         setBlog(res.data);
         setLoading(false);
       } catch (err) {
@@ -20,7 +21,7 @@ const BlogDetails = () => {
       }
     };
     fetchBlog();
-  }, [id]);
+  }, [id, apiUrl]);
 
   if (loading) {
     return (
@@ -32,19 +33,21 @@ const BlogDetails = () => {
 
   if (!blog) {
     return (
-      <Container sx={{ mt: 10}}>
-        <Typography variant="h6" color="error">Blog not found.</Typography>
+      <Container sx={{ mt: 10 }}>
+        <Typography variant="h6" color="error">
+          Blog not found.
+        </Typography>
       </Container>
     );
   }
 
   return (
-    <Container sx={{ mt: 1, pb:30 }}>
+    <Container sx={{ mt: 1, pb: 30 }}>
       <Typography variant="h3" color="primary" gutterBottom>
         {blog.title}
       </Typography>
       <img
-        src={`http://localhost:5000${blog.image}`}
+        src={`${apiUrl}${blog.image}`}
         alt={blog.title}
         style={{ maxWidth: "30%", borderRadius: 10, marginBottom: 10 }}
       />

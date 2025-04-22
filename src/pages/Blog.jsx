@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Container, Grid, Card, CardContent, CardMedia, Typography, Button, CircularProgress } from "@mui/material";
+import {
+  Container,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Button,
+  CircularProgress,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -8,19 +17,21 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/blogs");
+        const res = await axios.get(`${apiUrl}/api/blogs`);
         setBlogs(res.data);
-        setLoading(false);
       } catch (err) {
         console.error("Error fetching blogs:", err);
+      } finally {
         setLoading(false);
       }
     };
     fetchBlogs();
-  }, []);
+  }, [apiUrl]);
 
   if (loading) {
     return (
@@ -31,22 +42,29 @@ const Blog = () => {
   }
 
   return (
-    <Container sx={{ mt: 8, pb:16 }}>
+    <Container sx={{ mt: 8, pb: 16 }}>
       <Typography variant="h4" gutterBottom color="primary">
         Blog Posts
       </Typography>
       <Grid container spacing={4}>
         {blogs.map((post) => (
           <Grid item xs={12} sm={6} md={4} key={post.id}>
-            <Card sx={{ borderRadius: 3, height: "100%", display: "flex", flexDirection: "column" }}>
+            <Card
+              sx={{
+                borderRadius: 3,
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
               <CardMedia
                 component="img"
                 height="200"
-                image={`http://localhost:5000${post.image}`}
+                image={`${apiUrl}/${post.image}`}
                 alt={post.title}
               />
               <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h6" component="div" color="primary">
+                <Typography gutterBottom variant="h6" color="primary">
                   {post.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
