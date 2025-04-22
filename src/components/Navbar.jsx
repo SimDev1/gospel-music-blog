@@ -89,9 +89,9 @@ const Navbar = () => {
                       <ListItem button component={Link} to="/login">
                         <ListItemText primary="Login" />
                       </ListItem>
-                      <ListItem button component={Link} to="/register">
+                      {/*<ListItem button component={Link} to="/register">
                         <ListItemText primary="Register" />
-                      </ListItem>
+                      </ListItem>*/}
                     </>
                   )}
                 </List>

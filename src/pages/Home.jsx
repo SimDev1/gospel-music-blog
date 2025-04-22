@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 const Home = () => {
   return (
-    <Container maxWidth="md" sx={{ mt: 0, textAlign: "center", pb:20 }}>
+    <Container maxWidth="md" sx={{ mt: 2, textAlign: "center", pb:4 }}>
       <Box sx={{ mb: 4 }}>
         <Typography variant="h3" component="h1" fontWeight="bold" color="primary">
           Welcome to I-Survive Gospel Vibes
@@ -36,10 +36,10 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <Card sx={{ transition: 'transform 0.3s', cursor: 'pointer', '&:hover': {transform: 'scale(1.05)'}, maxWidth: 300, mx: "auto", borderRadius: 3, boxShadow: 4 }}>
+        <Card sx={{ transition: 'transform 0.3s', cursor: 'pointer', '&:hover': {transform: 'scale(1.05)'}, maxWidth: 400, mx: "auto", borderRadius: 3, boxShadow: 4 }}>
           <CardMedia
             component="img"
-            height="300"
+            height="400"
             image="/assets/banner.jpg"
             alt="Gospel Hero"
           />

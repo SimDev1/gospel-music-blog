@@ -13,31 +13,28 @@ const Footer = () => {
     >
       <Box
         sx={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          width: "100%",
           background: "linear-gradient(135deg, #2d3436, #000000)",
           color: "#ffffff",
-          px: { xs: 2, sm: 4, md: 6 },
-          py: { xs: 2, md: 3 },
-          zIndex: 1300,
-          boxShadow: "0 -2px 8px rgba(0,0,0,0.3)",
+          py: 3, // Reduced padding
+          mt: 10,
+          fontSize: "0.8rem", // Reduce all text size
         }}
       >
         <Container maxWidth="lg">
-          <Grid container spacing={4} justifyContent="space-between">
-            <Grid item xs={12} sm={4}>
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
+          <Grid container spacing={{xs:2, sm:4, md:20}}>
+            {/* Logo and Description */}
+            <Grid item xs={10} sm={4} md={2}>
+              <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
                 I-Survive Gospel Vibes
               </Typography>
-              <Typography variant="body2">
+              <Typography variant="caption">
                 Your home for inspiring gospel music, blogs, and faith-based content.
               </Typography>
             </Grid>
 
-            <Grid item xs={6} sm={4}>
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
+            {/* Quick Links */}
+            <Grid item xs={10} sm={4} md={2}>
+              <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
                 Quick Links
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
@@ -47,27 +44,40 @@ const Footer = () => {
               </Box>
             </Grid>
 
-            <Grid item xs={6} sm={4}>
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
+            {/* Contact & Socials */}
+            <Grid item xs={10} md={4}>
+              <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
                 Connect With Us
               </Typography>
               <Box>
-                <IconButton color="inherit" href="https://facebook.com" target="_blank"><Facebook /></IconButton>
-                <IconButton color="inherit" href="https://twitter.com" target="_blank"><Twitter /></IconButton>
-                <IconButton color="inherit" href="https://instagram.com" target="_blank"><Instagram /></IconButton>
-                <IconButton color="inherit" href="https://youtube.com" target="_blank"><YouTube /></IconButton>
-                <IconButton color="inherit" href="mailto:gospelvibes@gmail.com"><Email /></IconButton>
+                <IconButton color="inherit" size="small" href="https://facebook.com" target="_blank">
+                  <Facebook fontSize="small" />
+                </IconButton>
+                <IconButton color="inherit" size="small" href="https://twitter.com" target="_blank">
+                  <Twitter fontSize="small" />
+                </IconButton>
+                <IconButton color="inherit" size="small" href="https://instagram.com" target="_blank">
+                  <Instagram fontSize="small" />
+                </IconButton>
+                <IconButton color="inherit" size="small" href="https://youtube.com" target="_blank">
+                  <YouTube fontSize="small" />
+                </IconButton>
+                <IconButton color="inherit" size="small" href="mailto:gospelvibes@example.com">
+                  <Email fontSize="small" />
+                </IconButton>
               </Box>
-              <Typography variant="body2" mt={1}>
-                Email: gospelvibes@gmail.com
+              <Box sx={{display: "flex", flexwrap: "wrap", gap: 2, mt: 1}}>
+              <Typography variant="caption">
+                Email: gospelvibes@gmail.com 
               </Typography>
-              <Typography variant="body2">
+              <Typography variant="caption">
                 Phone: +234 810 854 8344
               </Typography>
+              </Box>
             </Grid>
           </Grid>
 
-          <Typography variant="body2" align="center" mt={3} color="gray">
+          <Typography variant="caption" align="center" mt={4} display="block" color="gray">
             &copy; {new Date().getFullYear()} I-Survive Gospel Vibes. All rights reserved. Developed by SimDev
           </Typography>
         </Container>
@@ -81,11 +91,11 @@ const FooterLink = ({ to, children }) => (
     href={to}
     underline="hover"
     sx={{
+      fontSize: "0.75rem",
       color: "#f1c40f",
-      fontSize: "0.875rem",
       "&:hover": {
-        color: "#ffffff",
         textDecoration: "underline",
+        color: "#ffffff",
       },
     }}
   >
