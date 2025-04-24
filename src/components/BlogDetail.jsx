@@ -42,15 +42,23 @@ const BlogDetails = () => {
   }
 
   return (
-    <Container sx={{ mt: 1, pb: 30 }}>
+    <Container sx={{ mt: 5, pb: 30 }}>
       <Typography variant="h3" color="primary" gutterBottom>
         {blog.title}
       </Typography>
-      <img
-        src={`${apiUrl}${blog.image}`}
-        alt={blog.title}
-        style={{ maxWidth: "30%", borderRadius: 10, marginBottom: 10 }}
-      />
+      {blog.image && (
+        <img
+          src={`${apiUrl}${blog.image}`}
+          alt={blog.title}
+          style={{
+            width: "100%",
+            maxWidth: "600px",
+            height: "auto",
+            borderRadius: 10,
+            marginBottom: 16,
+          }}
+        />
+      )}
       <Typography variant="subtitle1" color="text.secondary" gutterBottom>
         {blog.summary}
       </Typography>
