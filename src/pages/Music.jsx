@@ -26,7 +26,7 @@ const Music = () => {
   }, [apiUrl]);
 
   return (
-    <Container sx={{ py: 5, pb: 30 }}>
+    <Container sx={{ py: 5, pb: 20 }}>
       <Typography variant="h4" gutterBottom color="primary" fontWeight="bold">
         Latest Gospel Tracks
       </Typography>
@@ -47,7 +47,7 @@ const Music = () => {
                   <audio
                     controls
                     style={{ width: "100%", marginTop: "10px" }}
-                    src={`${apiUrl}/${track.file_path}`}
+                    src={`${apiUrl}/${track.file_path.replace(/\\/g, "/")}`}
                   />
                 </CardContent>
               </Card>
