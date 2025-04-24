@@ -8,7 +8,7 @@ const BlogDetails = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
-  const apiUrl = import.meta.env.VITE_API_URL;
+  const apiUrl = process.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchBlog = async () => {
