@@ -15,7 +15,7 @@ import Contact from "./pages/Contact";
 import Upload from "./pages/Upload";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import BlogDetail from "./components/BlogDetail";
+import BlogDetails from "./components/BlogDetails";
 import AddBlog from "./components/AddBlog";
 
 const theme = createTheme({
@@ -58,7 +58,7 @@ function AppWrapper() {
         <Route path="/upload" element={<Upload />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/add-blog" element={<AddBlog />} />
       </Routes>
     </Box>
